@@ -13,9 +13,12 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
+        let newItem = Server(context: viewContext)
+        newItem.timestamp = Date()
+        for _ in 0..<2 {
+            let newItem = Server(context: viewContext)
             newItem.timestamp = Date()
+            newItem.url = "ws://127.0.0.1:3032"
         }
         do {
             try viewContext.save()

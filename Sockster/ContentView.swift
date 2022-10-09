@@ -12,18 +12,21 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(keyPath: \Server.timestamp, ascending: true)],
         animation: .default)
-    private var items: FetchedResults<Item>
+    private var items: FetchedResults<Server>
+    
+    @State private var selection = Set(["New server"])
 
     var body: some View {
         NavigationView {
-            List {
+            List(selection: $selection) {
                 ForEach(items) { item in
                     NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        ServerView(server: item)
+                            .environment(\.managedObjectContext, viewContext)
                     } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                        Text(item.url ?? "New server")
                     }
                 }
                 .onDelete(perform: deleteItems)
@@ -35,13 +38,13 @@ struct ContentView: View {
                     }
                 }
             }
-            Text("Select an item")
+            Text("Select a server")
         }
     }
 
     private func addItem() {
         withAnimation {
-            let newItem = Item(context: viewContext)
+            let newItem = Server(context: viewContext)
             newItem.timestamp = Date()
 
             do {
@@ -70,13 +73,6 @@ struct ContentView: View {
         }
     }
 }
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
