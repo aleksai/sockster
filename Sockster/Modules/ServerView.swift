@@ -45,16 +45,28 @@ struct ServerView: View {
                         }
                     
                     HStack(spacing: 4) {
-                        if error {
-                            Circle()
-                                .frame(width: 6, height: 6)
-                                .foregroundColor(.red)
-                        }
-                        
-                        if connection {
-                            Circle()
-                                .frame(width: 6, height: 6)
-                                .foregroundColor(.green)
+                        if error && connection {
+                            ZStack(alignment: .trailing) {
+                                Circle()
+                                    .frame(width: 6, height: 6)
+                                    .foregroundColor(.green)
+                                    .offset(x: -3)
+                                Circle()
+                                    .frame(width: 6, height: 6)
+                                    .foregroundColor(.red)
+                            }
+                        } else {
+                            if error {
+                                Circle()
+                                    .frame(width: 6, height: 6)
+                                    .foregroundColor(.red)
+                            }
+                            
+                            if connection {
+                                Circle()
+                                    .frame(width: 6, height: 6)
+                                    .foregroundColor(.green)
+                            }
                         }
                     }
                     .padding(.trailing, 8)
