@@ -27,7 +27,7 @@
 		57A616D028F2E97C001423E8 /* Sockster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sockster.entitlements; sourceTree = "<group>"; };
 		57A616D628F2EC0A001423E8 /* ServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerView.swift; sourceTree = "<group>"; };
 		57A616DB28F2F7F1001423E8 /* Socket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Socket.swift; sourceTree = "<group>"; };
-		57A616DD28F2FBDA001423E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		57A616DD28F2FBDA001423E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +42,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5779300528F47EFA00EFE84D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				57A616DD28F2FBDA001423E8 /* Info.plist */,
+				57A616C628F2E97C001423E8 /* Assets.xcassets */,
+				57A616CD28F2E97C001423E8 /* Sockster.xcdatamodeld */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5779300628F47F0900EFE84D /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				57A616C428F2E97B001423E8 /* ContentView.swift */,
+				57A616D628F2EC0A001423E8 /* ServerView.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		5779300728F47F2000EFE84D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				57A616CB28F2E97C001423E8 /* Persistence.swift */,
+				57A616DB28F2F7F1001423E8 /* Socket.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		57A616B628F2E97B001423E8 = {
 			isa = PBXGroup;
 			children = (
@@ -61,15 +89,11 @@
 		57A616C128F2E97B001423E8 /* Sockster */ = {
 			isa = PBXGroup;
 			children = (
-				57A616DD28F2FBDA001423E8 /* Info.plist */,
-				57A616C228F2E97B001423E8 /* SocksterApp.swift */,
-				57A616C428F2E97B001423E8 /* ContentView.swift */,
-				57A616D628F2EC0A001423E8 /* ServerView.swift */,
-				57A616C628F2E97C001423E8 /* Assets.xcassets */,
-				57A616CB28F2E97C001423E8 /* Persistence.swift */,
 				57A616D028F2E97C001423E8 /* Sockster.entitlements */,
-				57A616CD28F2E97C001423E8 /* Sockster.xcdatamodeld */,
-				57A616DB28F2F7F1001423E8 /* Socket.swift */,
+				57A616C228F2E97B001423E8 /* SocksterApp.swift */,
+				5779300728F47F2000EFE84D /* Services */,
+				5779300628F47F0900EFE84D /* Modules */,
+				5779300528F47EFA00EFE84D /* Resources */,
 			);
 			path = Sockster;
 			sourceTree = "<group>";
@@ -289,7 +313,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Sockster/Info.plist;
+				INFOPLIST_FILE = Sockster/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -319,7 +343,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Sockster/Info.plist;
+				INFOPLIST_FILE = Sockster/Resources/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
