@@ -1,11 +1,11 @@
 # Sockster
 > MacOS socket.io client tester developed with SwiftUI
 
-<img src="https://github.com/aleksai/sockster/blob/main/Sockster/Resources/Assets.xcassets/AppIcon.appiconset/512.png?raw=true" alt="Sockster" width="256"/>
-
 [![Swift Version][swift-image]][swift-url]
 [![Build Status][travis-image]][travis-url]
 [![License][license-image]][license-url]
+
+<img src="https://github.com/aleksai/sockster/blob/main/Sockster/Resources/Assets.xcassets/AppIcon.appiconset/512.png?raw=true" alt="Sockster" width="256"/>
 
 ## Release History
 
