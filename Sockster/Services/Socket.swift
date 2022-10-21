@@ -24,7 +24,7 @@ class Socket: NSObject {
     func connect(url: String, delegate: SocketDelegate) {
         self.delegate = delegate
         
-        manager = SocketManager(socketURL: URL(string: url)!, config: [.logger(self), .compress])
+        manager = SocketManager(socketURL: URL(string: url)!, config: [.forceWebsockets(true), .secure(true), .logger(self), .compress, .reconnectAttempts(0)])
         
         manager?.defaultSocket.on(clientEvent: .connect, callback: { [weak self] data, ack in
             self?.delegate?.log("[CONNECTED] " + data.description)
